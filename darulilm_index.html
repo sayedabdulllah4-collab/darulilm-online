@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darul Ilm Online – Spreading the Light of the Qur’an & Sunnah</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fcfcfc; /* Near white background */
+            /* Subtle Islamic geometric pattern background */
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e6fffb' fill-opacity='1' transform='translate(0 30)'%3E%3Cpath d='M47.79 31.851c.328.093.364.542.062.776-.738.568-1.745.922-2.887.922-2.73 0-4.965-1.92-5.405-4.437.073-.01.147-.023.22-.04.49-.115.897-.506.897-.992 0-.616-.503-1.118-1.12-1.118-.614 0-1.117.502-1.117 1.118 0 .445.275.83.673.992-1.077 3.32-4.265 5.76-8.083 5.76-4.945 0-8.95-4.004-8.95-8.95s4.005-8.95 8.95-8.95c3.55 0 6.64 2.072 8.165 5.174l-.067-.008c-.614 0-1.117.502-1.117 1.118 0 .486.407.877.897.992.073.017.147.03.22.04-.44 2.517-2.675 4.437-5.405 4.437-1.142 0-2.15-.354-2.887-.922-.302-.234-.266-.683.062-.776 2.05-.58 3.504-2.48 3.504-4.664 0-2.632-2.13-4.762-4.76-4.762-2.63 0-4.76 2.13-4.76 4.762s2.13 4.76 4.76 4.76c.48 0 .95-.08 1.4-.23l.11.12c.32.35.53.79.62 1.25.12.63-.03 1.25-.43 1.76-1.57 1.94-3.79 3.03-6.23 3.03-4.764 0-8.62-3.856-8.62-8.62s3.856-8.62 8.62-8.62 8.62 3.856 8.62 8.62c0 2.22-1.02 4.22-2.6 5.46-.38.3-.43.78-.15 1.13.29.35.79.43 1.15.19 1.95-1.28 3.3-3.46 3.3-5.83 0-4.41-3.587-7.997-7.997-7.997-4.41 0-7.997 3.587-7.997 7.997s3.587 7.997 7.997 7.997c2.61 0 5.06-1.26 6.58-3.4l.06-.08.06.08c1.52 2.14 3.97 3.4 6.58 3.4 4.41 0 7.997-3.587 7.997-7.997s-3.587-7.997-7.997-7.997c-2.37 0-4.55 1.35-5.83 3.3-.28.37-.23.85.15 1.13.36.24.86.16 1.14-.19 1.58-1.24 2.6-3.24 2.6-5.46 0-4.764-3.856-8.62-8.62-8.62S23.7 18.236 23.7 23s3.856 8.62 8.62 8.62c2.44 0 4.66-1.09 6.23-3.03.4-.5.55-1.12.43-1.76-.09-.46-.3-.9-.62-1.25l-.11-.12c-.45.15-1.29.23-1.77.23-2.63 0-4.76-2.13-4.76-4.76s2.13-4.76 4.76-4.76 4.76 2.13 4.76 4.76c0 2.18-1.45 4.08-3.5 4.66zM32.32 23c0-1.745 1.415-3.16 3.16-3.16s3.16 1.415 3.16 3.16-1.415 3.16-3.16 3.16-3.16-1.415-3.16-3.16zM50.62 23c0-1.415 1.145-2.56 2.56-2.56s2.56 1.145 2.56 2.56-1.145 2.56-2.56 2.56-2.56-1.145-2.56-2.56zM14.7 23c0-1.415 1.145-2.56 2.56-2.56s2.56 1.145 2.56 2.56-1.145 2.56-2.56 2.56-2.56-1.145-2.56-2.56z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            background-repeat: repeat;
+        }
+        /* Custom class for the gold accent used in the Islamic theme */
+        .text-gold { color: #D9A02A; }
+        .bg-gold-light { background-color: #fefce8; }
+        .border-gold { border-color: #D9A02A; }
+        
+        .nav-link {
+            transition: color 0.3s, border-color 0.3s;
+        }
+        .nav-link:hover {
+            color: #D9A02A; /* Gold on hover */
+            border-bottom: 2px solid #D9A02A;
+        }
+        .active-link {
+            color: #D9A02A; 
+            border-bottom: 2px solid #D9A02A;
+        }
+
+        /* Hero Banner background with plain green overlay */
+        .hero-bg {
+            background-image: url('https://placehold.co/1200x600/047857/047857'); /* Plain green background */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(4, 120, 87, 0.85); /* Emerald 700 with high opacity */
+        }
+        
+        /* Floating WhatsApp Button */
+        #whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(4, 120, 87, 0.6);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    
+    <div id="app" class="min-h-screen flex flex-col">
+        
+        
+        <header class="bg-white shadow-md sticky top-0 z-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+                <a href="#home" class="flex items-center space-x-2">
+                    <i data-lucide="mosque" class="text-emerald-700 h-8 w-8"></i>
+                    <span class="text-xl md:text-2xl font-bold text-emerald-700">Darul Ilm <span class="text-gold">Online</span></span>
+                </a>
+                
+                
+                <nav class="hidden md:flex space-x-6 text-sm font-semibold">
+                    <a href="#home" class="nav-link text-gray-600 hover:text-emerald-700 pb-1">Home</a>
+                    <a href="#about" class="nav-link text-gray-600 hover:text-emerald-700 pb-1">About</a>
+                    <a href="#courses" class="nav-link text-gray-600 hover:text-emerald-700 pb-1">Courses</a>
+                    <a href="#packages" class="nav-link text-gray-600 hover:text-emerald-700 pb-1">Packages</a>
+                    <!-- Contact link removed as per request -->
+                </nav>
+
+                
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-emerald-700 hover:bg-emerald-100 transition duration-150">
+                    <i data-lucide="menu" class="h-6 w-6"></i>
+                </button>
+            </div>
+
+            
+            <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 p-4 space-y-2">
+                <a href="#home" class="mobile-nav-link block text-gray-700 hover:text-emerald-700 py-2 border-b border-gray-100">Home</a>
+                <a href="#about" class="mobile-nav-link block text-gray-700 hover:text-emerald-700 py-2 border-b border-gray-100">About</a>
+                <a href="#courses" class="mobile-nav-link block text-gray-700 hover:text-emerald-700 py-2 border-b border-gray-100">Courses</a>
+                <a href="#packages" class="mobile-nav-link block text-gray-700 hover:text-emerald-700 py-2">Packages</a>
+                <!-- Contact link removed as per request -->
+            </div>
+        </header>
+
+        
+        <main id="page-content" class="flex-grow"></main>
+
+        
+        <a id="whatsapp-float" href="https://wa.link/ceemj5" target="_blank" class="flex items-center justify-center w-14 h-14 bg-emerald-600 hover:bg-emerald-800 rounded-full transition duration-300">
+            <i data-lucide="message-square" class="h-7 w-7 text-white fill-white"></i>
+        </a>
+
+        
+        <footer class="bg-gray-900 mt-12 py-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div class="flex justify-center space-x-4 mb-4">
+                    <a href="#" class="text-gray-400 hover:text-gold transition duration-200"><i data-lucide="facebook" class="h-6 w-6"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-gold transition duration-200"><i data-lucide="instagram" class="h-6 w-6"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-gold transition duration-200"><i data-lucide="youtube" class="h-6 w-6"></i></a>
+                </div>
+                <p class="text-sm text-gray-400 mb-2">
+                    © 2025 Darul Ilm Online — All Rights Reserved 
+                </p>
+                <p class="text-xs text-gray-500">
+                    Powered by Islamic Knowledge & Sincerity
+                </p>
+            </div>
+        </footer>
+
+    </div>
+
+    <script type="module">
+        // Data Definitions (Now in English)
+        const WHATSAPP_LINK = "https://wa.link/ceemj5"; // UPDATED LINK
+        
+        // Individual Courses
+        const COURSES = [
+            { title: 'Qur’an Majeed (Recitation & Tajweed)', icon: 'book-open', description: 'Master accurate recitation (Tilawah), deep Tajweed rules, and foundational understanding of the Holy Qur’an.', price: '999' },
+            { title: 'Madni Qaida (Beginner Foundation)', icon: 'square-gantt-chart', description: 'The absolute beginner foundation course focusing on Arabic alphabet pronunciation and connecting letters.', price: '799' },
+            { title: 'Faizan-e-Qur’an (Selected Tafseer)', icon: 'library', description: 'An immersive deep dive into the meanings (Tafseer) and practical wisdom of selected chapters.', price: '999' },
+            { title: 'Kids Islamic Education', icon: 'baby', description: 'Fun and engaging lessons on Islamic manners, basic Aqeedah, and inspiring stories of the Prophets.', price: '499' },
+            // New Courses Added
+            { title: 'Sirat-e-Mustafa (Prophet\'s Biography)', icon: 'star', description: 'Study the life and character of the Holy Prophet ﷺ for practical application in daily life.', price: '699' },
+            { title: 'Tarjuma-e-Qur’an (Translation)', icon: 'message-square-text', description: 'Learn the word-for-word and contextual translation of the Holy Qur’an.', price: '599' }
+        ];
+
+        // Study Packages
+        const PACKAGES = [
+            { 
+                title: 'Beginner Package', 
+                description: 'Foundational 2-month session covering essential basics.', 
+                price: '1499', 
+                duration: '2 Month Session',
+                icon: 'graduation-cap', 
+                features: [
+                    'Madni Qaida', 
+                    'Qur\'an Para 30 (Last Para)', 
+                    'Flexible 1-on-1 Sessions',
+                    'Certification on Completion'
+                ] 
+            },
+            { 
+                title: 'Intermediate Package', 
+                description: '5-month immersive course for deeper Tajweed and foundational Tafseer.', 
+                price: '2499', 
+                duration: '5 Month Session',
+                icon: 'shield-check', 
+                features: [
+                    'Madni Qaida Revision', 
+                    'Half Qur\'an Recitation', 
+                    'Sirat-e-Mustafa (Prophet\'s Biography)',
+                    'Monthly Progress Reports'
+                ] 
+            },
+            { 
+                title: 'Advanced Package', 
+                description: '12-month comprehensive scholarship track in Islamic Sciences.', 
+                price: '4499', 
+                duration: '12 Month Session',
+                icon: 'trending-up', 
+                features: [
+                    'Qur\'an Recitation & Tajweed Mastery', 
+                    'Faizan-e-Qur’an (Tafseer)', 
+                    'Sirat-e-Mustafa', 
+                    'Tarjuma-e-Qur\'an (15 Para)',
+                    'Dedicated 1-on-1 Mentoring'
+                ] 
+            }
+        ];
+
+        const TESTIMONIALS = [
+            { quote: 'My Tajweed has improved significantly. The teacher is very patient and knowledgeable. I would definitely recommend!', name: 'Ahmed K.', city: 'London, UK' },
+            { quote: 'The children\'s section is amazing! My daughter eagerly waits for her Islamic Manners class every week.', name: 'Fatima S.', city: 'New York, USA' },
+            { quote: 'As a revert, this academy gave me the excellent, easy foundation I needed to start learning the Qur\'an.', name: 'Yusuf A.', city: 'Toronto, Canada' },
+        ];
+
+
+        // --- PAGE RENDER FUNCTIONS ---
+
+        function renderHome() {
+            return `
+                
+                <section class="hero-bg text-white relative py-20 md:py-32 flex items-center justify-center">
+                    <div class="relative z-10 text-center max-w-4xl mx-auto px-4 animate-[fade-in_1s_ease-out]">
+                        <h1 class="text-4xl sm:text-6xl font-extrabold mb-4 tracking-tight">
+                            Darul Ilm <span class="text-gold">Online</span>
+                        </h1>
+                        <p class="text-xl sm:text-2xl font-light mb-8">
+                            Spreading the Light of the Qur’an and Sunnah.
+                        </p>
+                        
+                        <!-- UPDATED: Changed from bg-gold to bg-white with green border and text -->
+                        <a href="${WHATSAPP_LINK}" target="_blank" 
+                           class="inline-flex items-center justify-center px-8 py-4 bg-white text-emerald-700 font-bold rounded-xl shadow-2xl border-2 border-emerald-700 hover:bg-emerald-50 transition duration-300 transform hover:scale-105 space-x-2 text-lg">
+                            <i data-lucide="message-circle" class="h-6 w-6"></i>
+                            <span>Join via WhatsApp</span>
+                        </a>
+                        
+                    </div>
+                </section>
+
+                
+                <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+                    <h2 class="text-3xl font-bold text-center text-emerald-700 mb-10">Featured Courses</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        ${COURSES.slice(0, 3).map(course => `
+                            
+                            <a href="#courses" class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-gold transition duration-300 hover:shadow-xl transform hover:-translate-y-1 cursor-pointer block">
+                                <i data-lucide="${course.icon}" class="h-8 w-8 text-gold mb-3"></i>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">${course.title}</h3>
+                                <p class="text-gray-600 text-sm mb-4">${course.description}</p>
+                                <p class="text-2xl font-bold text-emerald-700 mt-2">₹${course.price}<span class="text-sm font-normal text-gray-500"> / month</span></p>
+                            </a>
+                        `).join('')}
+                    </div>
+                </section>
+                
+                
+                <section class="bg-emerald-700 text-white py-10">
+                    <div class="max-w-4xl mx-auto text-center px-4">
+                        <h3 class="text-2xl font-bold mb-3">View Packages for Greater Savings and Depth!</h3>
+                        <p class="mb-5 text-emerald-100">Choose the best plan for you: Beginner, Intermediate, or Advanced.</p>
+                        <a href="#packages" 
+                           class="inline-flex items-center px-6 py-3 bg-gold text-emerald-900 font-semibold rounded-lg hover:bg-amber-600 transition duration-300 transform hover:scale-105 space-x-2">
+                            <i data-lucide="package" class="h-5 w-5"></i>
+                            <span>View Package Prices</span>
+                        </a>
+                    </div>
+                </section>
+
+                
+                <section class="bg-emerald-50 py-12 md:py-20">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                            <div>
+                                <h2 class="text-3xl font-bold text-emerald-700 mb-6">Why Choose Darul Ilm?</h2>
+                                <p class="text-gray-700 mb-4">
+                                    We are dedicated to sincerely and diligently spreading **authentic Islamic knowledge**. Our focus is on practical education that transforms the student's relationship with the Qur'an and Sunnah.
+                                </p>
+                                <ul class="space-y-3 text-gray-700">
+                                    <li class="flex items-start space-x-3"><i data-lucide="check-circle" class="h-5 w-5 text-gold mt-1"></i><span>Qualified and Ijazah-holding teachers.</span></li>
+                                    <li class="flex items-start space-x-3"><i data-lucide="check-circle" class="h-5 w-5 text-gold mt-1"></i><span>Flexible online schedule for worldwide students.</span></li>
+                                    <li class="flex items-start space-x-3"><i data-lucide="check-circle" class="h-5 w-5 text-gold mt-1"></i><span>Personalized learning plans for all ages, including reverts and children.</span></li>
+                                </ul>
+                            </div>
+                            <div class="p-6 bg-white shadow-xl rounded-xl">
+                                <i data-lucide="target" class="h-10 w-10 text-emerald-700 mx-auto mb-4"></i>
+                                <blockquote class="text-center italic text-lg font-medium text-gray-700">
+                                    "The best among you is he who learns the Qur'an and teaches it."
+                                </blockquote>
+                                <p class="text-right text-sm text-gray-500 mt-2">— Hadith</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                
+                <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+                    <h2 class="text-3xl font-bold text-center text-emerald-700 mb-10">What Our Students Say</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        ${TESTIMONIALS.map(t => `
+                            <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-emerald-500">
+                                <i data-lucide="quote" class="h-6 w-6 text-gold mb-3"></i>
+                                <p class="italic text-gray-700 mb-4 text-base">"${t.quote}"</p>
+                                <p class="font-semibold text-emerald-700 text-sm">— ${t.name}, <span class="text-gray-500">${t.city}</span></p>
+                            </div>
+                        `).join('')}
+                    </div>
+                </section>
+            `;
+        }
+
+        function renderAbout() {
+            return `
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+                    <h2 class="text-4xl font-bold text-emerald-700 mb-6 border-b-2 border-gold pb-2">Our Mission and Vision</h2>
+                    
+                    <div class="bg-white p-8 rounded-xl shadow-xl mb-10">
+                        <p class="text-lg text-gray-700 mb-6">
+                            Darul Ilm Online was established with the vision of creating a comprehensive, accessible digital sanctuary for authentic Islamic education. Our founders recognized the growing need for high-quality, flexible learning that transcends geographical barriers.
+                        </p>
+                        <p class="text-lg text-gray-700 mb-6">
+                            We are committed to providing structured curricula, utilizing modern online teaching methods, while strictly adhering to classical Islamic scholarship. Our focus is on fostering a deep, personal connection with the Qur’an and Sunnah in every student.
+                        </p>
+                        
+                        <div class="text-center py-6 border-y border-emerald-100 my-6">
+                            <i data-lucide="quran" class="h-12 w-12 text-gold mx-auto mb-4"></i>
+                            <blockquote class="italic text-xl font-medium text-gray-800">
+                                “Education with sincerity leads to transformation.”
+                            </blockquote>
+                        </div>
+
+                        <h3 class="text-2xl font-semibold text-emerald-700 mt-8 mb-4">Our Teachers</h3>
+                        <p class="text-gray-700">
+                            Our faculty consists of qualified Islamic scholars and Huffaz (those who have memorized the Qur'an) who hold recognized certifications (Ijazah) in their respective fields. We focus not just on teaching, but on ethical mentoring, ensuring that the knowledge is imparted with **wisdom and practical application (Tarbiyyah)**.
+                        </p>
+                    </div>
+
+                    <!-- Get in Touch Section (Moved from Contact Page) -->
+                    <h2 class="text-4xl font-bold text-emerald-700 mb-8 text-center mt-12">Get in Touch</h2>
+                    <p class="text-center text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
+                        We are ready to help you start your journey. Contact us directly on WhatsApp for instant assistance.
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        
+                        <!-- Instant Chat / Main Contact -->
+                        <div class="bg-emerald-50 p-6 rounded-xl shadow-xl text-center border-b-4 border-emerald-500 transition duration-300 hover:shadow-2xl">
+                            <i data-lucide="message-square" class="h-10 w-10 text-emerald-600 mx-auto mb-4 fill-emerald-200"></i>
+                            <h3 class="text-xl font-semibold mb-2">Instant Chat Support</h3>
+                            <p class="text-gray-600 mb-4">Quickest response for enrollment and general queries.</p>
+                            <a href="${WHATSAPP_LINK}" target="_blank" class="w-full inline-flex items-center justify-center py-3 px-6 bg-emerald-600 text-white font-semibold rounded-full hover:bg-emerald-700 transition space-x-2">
+                                <i data-lucide="whatsapp" class="h-5 w-5 fill-white"></i>
+                                <span>Chat Now on WhatsApp</span>
+                            </a>
+                        </div>
+
+                        <!-- Custom Book Study Request (New Requirement) -->
+                        <div class="bg-gold-light p-6 rounded-xl shadow-xl text-center border-b-4 border-gold transition duration-300 hover:shadow-2xl">
+                            <i data-lucide="book-check" class="h-10 w-10 text-gold mx-auto mb-4"></i>
+                            <h3 class="text-xl font-semibold mb-2">Custom Study Requests</h3>
+                            <p class="text-gray-600 mb-4">Want to study a specific book outside our curriculum? Message us!</p>
+                            <a href="${WHATSAPP_LINK}?text=I%20would%20like%20to%20inquire%20about%20studying%20a%20custom%20Islamic%20book." target="_blank" class="w-full inline-flex items-center justify-center py-3 px-6 bg-gold text-emerald-900 font-semibold rounded-full hover:bg-amber-600 transition space-x-2">
+                                <i data-lucide="send" class="h-5 w-5"></i>
+                                <span>Inquire About Custom Book</span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            `;
+        }
+
+        function renderCourses() {
+            return `
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+                    <h2 class="text-4xl font-bold text-emerald-700 mb-8 text-center">Comprehensive Curriculum (Individual Courses)</h2>
+                    <p class="text-center text-lg text-gray-600 mb-12 max-w-3xl mx-auto">
+                        We offer specialized tracks for all levels. Enroll in any course below as a standalone class.
+                    </p>
+
+                    
+                    <!-- Updated Grid to fit 6 courses, now showing 3 cols on MD, 4 on LG -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
+                        ${COURSES.map(course => `
+                            <div class="bg-white rounded-xl shadow-xl overflow-hidden flex flex-col transition duration-300 hover:shadow-2xl border-t-8 border-emerald-700">
+                                <div class="p-6 flex-grow">
+                                    <i data-lucide="${course.icon}" class="h-8 w-8 text-gold mb-3"></i>
+                                    <h3 class="text-xl font-bold text-gray-900 mb-2">${course.title}</h3>
+                                    <p class="text-gray-600 text-sm mb-4">${course.description}</p>
+                                    
+                                    <p class="text-2xl font-bold text-emerald-700 mt-4">₹${course.price}<span class="text-sm font-normal text-gray-500"> / month</span></p>
+                                </div>
+                                <div class="p-6 pt-0">
+                                    <a href="${WHATSAPP_LINK}" target="_blank" class="w-full inline-flex items-center justify-center py-3 bg-emerald-600 text-white font-semibold rounded-lg hover:bg-emerald-700 transition duration-300 space-x-2 text-sm">
+                                        <i data-lucide="whatsapp" class="h-4 w-4 fill-white"></i>
+                                        <span>Register on WhatsApp</span>
+                                    </a>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+
+                    
+                    <div class="mt-16 p-8 md:p-12 bg-gold-light rounded-xl shadow-inner border border-gold">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <i data-lucide="baby" class="h-10 w-10 text-gold"></i>
+                            <h3 class="text-2xl font-bold text-emerald-700">Dedicated Kids Section</h3>
+                        </div>
+                        <p class="text-lg text-gray-700">
+                            The Kids Islamic Education track focuses on teaching the fundamentals of Islam through fun stories of the Prophets, basic Arabic, and essential Islamic manners, ensuring a positive and engaging learning experience.
+                        </p>
+                    </div>
+
+                    
+                    <div class="bg-emerald-700 text-white py-10 mt-16 rounded-xl">
+                        <div class="max-w-4xl mx-auto text-center px-4">
+                            <h3 class="text-2xl font-bold mb-3">View Packages for Greater Savings and Depth!</h3>
+                            <p class="mb-5 text-emerald-100">Choose the best plan for you: Beginner, Intermediate, or Advanced.</p>
+                            <a href="#packages" 
+                               class="inline-flex items-center px-6 py-3 bg-gold text-emerald-900 font-semibold rounded-lg hover:bg-amber-600 transition duration-300 transform hover:scale-105 space-x-2">
+                                <i data-lucide="package" class="h-5 w-5"></i>
+                                <span>View Package Prices</span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            `;
+        }
+
+        function renderPackages() {
+            return `
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+                    <h2 class="text-4xl font-bold text-emerald-700 mb-8 text-center">Our Flexible Study Packages</h2>
+                    <p class="text-center text-lg text-gray-600 mb-12 max-w-3xl mx-auto">
+                        Choose the plan that best suits your learning pace and intensity. All packages include personalized 1-on-1 sessions.
+                    </p>
+
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        ${PACKAGES.map(pkg => `
+                            <div class="bg-emerald-700 text-white rounded-xl shadow-2xl overflow-hidden flex flex-col transition duration-300 hover:scale-[1.02] border-t-8 ${pkg.title.includes('Advanced') ? 'border-gold' : 'border-emerald-500'}">
+                                
+                                
+                                <div class="p-8 pb-4 text-center">
+                                    <i data-lucide="${pkg.icon}" class="h-10 w-10 ${pkg.title.includes('Advanced') ? 'text-gold' : 'text-white'} mx-auto mb-4"></i>
+                                    <h3 class="text-2xl font-bold mb-2">${pkg.title}</h3>
+                                    <p class="text-emerald-100 text-sm mb-2">${pkg.description}</p>
+                                    
+                                    <span class="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-emerald-800 text-emerald-100">${pkg.duration}</span>
+                                </div>
+                                
+                                <div class="py-6 bg-emerald-800 border-y border-emerald-600 text-center">
+                                    
+                                    <span class="text-4xl font-extrabold ${pkg.title.includes('Advanced') ? 'text-gold' : 'text-white'}">₹${pkg.price}</span>
+                                    <span class="text-sm text-emerald-200 block">per student/month</span>
+                                </div>
+
+                                
+                                <!-- IMPORTANT: Background WHITE and Text EMERALD GREEN as requested -->
+                                <ul class="p-8 space-y-3 flex-grow bg-white text-emerald-700"> 
+
+                                    ${pkg.features.map(feature => `
+                                        <li class="flex items-center space-x-3 text-lg font-medium">
+                                            <i data-lucide="check" class="h-5 w-5 text-gold flex-shrink-0"></i>
+                                            <span>${feature}</span>
+                                        </li>
+                                    `).join('')}
+                                </ul>
+                                
+                                <!-- UPDATED: Changed from bg-gold to bg-white with green border and text -->
+                                <div class="p-8 pt-0 bg-white">
+                                    <a href="${WHATSAPP_LINK}" target="_blank" class="w-full inline-flex items-center justify-center py-4 bg-white text-emerald-700 font-bold rounded-lg border-2 border-emerald-700 hover:bg-emerald-50 transition duration-300 shadow-lg space-x-2 text-base">
+                                        <i data-lucide="zap" class="h-5 w-5"></i>
+                                        <span>Enroll Now</span>
+                                    </a>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+        
+        // renderContact function removed as per request
+
+        // --- ROUTER AND INITIALIZATION ---
+
+        const pageContent = document.getElementById('page-content');
+        const pages = {
+            'home': renderHome,
+            'about': renderAbout,
+            'courses': renderCourses,
+            'packages': renderPackages,
+            // 'contact' removed
+        };
+
+        function updateNavigation(currentPage) {
+            // Update desktop links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active-link');
+                if (link.getAttribute('href') === `#${currentPage}`) {
+                    link.classList.add('active-link');
+                }
+            });
+
+            // Update mobile links
+            document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                if (link.getAttribute('href') === `#${currentPage}`) {
+                    link.classList.add('font-bold', 'text-emerald-700');
+                } else {
+                    link.classList.remove('font-bold', 'text-emerald-700');
+                }
+            });
+        }
+
+        function router() {
+            let hash = window.location.hash.slice(1);
+            // If contact was in hash, redirect to about
+            if (hash === 'contact') {
+                 window.location.hash = '#about';
+                 return; 
+            }
+            let currentPage = hash && pages[hash] ? hash : 'home';
+            
+            // Render the correct page content
+            pageContent.innerHTML = pages[currentPage]();
+            
+            // Update navigation styles
+            updateNavigation(currentPage);
+            
+            // Re-render lucide icons after updating the content
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+
+            // Scroll to top on page change
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // --- EVENT LISTENERS ---
+
+        // Listen for URL hash changes (navigation)
+        window.addEventListener('hashchange', router);
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        document.getElementById('mobile-menu').addEventListener('click', (e) => {
+            if (e.target.tagName === 'A') {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            }
+        });
+
+        // Initial load
+        window.onload = function() {
+            // Render all Lucide icons (for the header, footer, and float button)
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+            router();
+        }
+    </script>
+</body>
+</html>
